@@ -1,0 +1,139 @@
+<html>
+ <head>
+  <title>
+   Litla Toods
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <script>
+   document.addEventListener('DOMContentLoaded', function () {
+     const addBookButton = document.getElementById('addBookButton');
+     const bookContainer = document.getElementById('bookContainer');
+     const searchInput = document.getElementById('searchInput');
+
+     addBookButton.addEventListener('click', function () {
+       const newBook = `
+         <div class="bg-white rounded-lg shadow-lg p-4">
+           <img src="https://placehold.co/300x200" alt="New book image" class="rounded-t-lg mb-4" />
+           <h2 class="text-lg font-semibold text-gray-700 mb-2">New Book Title</h2>
+           <div class="flex justify-between items-center">
+             <button class="bg-blue-500 text-white px-4 py-2 rounded-full">Editar</button>
+             <button class="bg-red-500 text-white px-4 py-2 rounded-full">Eliminar</button>
+           </div>
+         </div>
+       `;
+       bookContainer.insertAdjacentHTML('beforeend', newBook);
+     });
+
+     searchInput.addEventListener('input', function () {
+       const filter = searchInput.value.toLowerCase();
+       const books = bookContainer.getElementsByClassName('bg-white');
+
+       Array.from(books).forEach(function (book) {
+         const title = book.getElementsByTagName('h2')[0].innerText.toLowerCase();
+         if (title.includes(filter)) {
+           book.style.display = '';
+         } else {
+           book.style.display = 'none';
+         }
+       });
+     });
+   });
+  </script>
+ </head>
+ <body class="bg-gradient-to-r from-blue-200 to-orange-200 min-h-screen flex items-center justify-center">
+  <div class="bg-gray-800 rounded-lg shadow-lg w-11/12 max-w-6xl overflow-hidden">
+   <div class="flex">
+    <div class="bg-gray-900 text-gray-300 w-1/4 p-4">
+    
+     <div class="flex items-center mb-6 text-yellow-500">
+      <i class="fas fa-tasks">
+      </i>
+      <span class="ml-2">
+       Control
+      </span>
+     </div>
+     <div class="flex items-center mb-6">
+      <i class="fas fa-book">
+      </i>
+      <span class="ml-2">
+       Brook
+      </span>
+      <button class="bg-green-500 text-white px-4 py-4 rounded-full text-xl absolute bottom-4 l-4" id="addBookButton">
+        +
+       </button>
+     </div>
+    </div>
+    <div class="bg-gray-100 w-3/4 p-6 relative">
+     <div class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold text-gray-700">
+       Stock Book
+      </h1>
+      <div class="flex items-center space-x-4">
+       <input class="border border-gray-300 rounded-full px-4 py-2" id="searchInput" placeholder="Search..." type="text"/>
+       <i class="fas fa-search text-gray-500">
+       </i>
+       <i class="fas fa-bell text-gray-500">
+       </i>
+       <i class="fas fa-cog text-gray-500">
+       </i>
+      </div>
+     </div>
+     <div class="grid grid-cols-3 gap-6" id="bookContainer">
+      <a href="https://web.seducoahuila.gob.mx/biblioweb/upload/Antoine%20De%20Saint-Exup%C3%A9ry%20-%20El%20principito.pdf" target="_blank" >
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <img alt="A vase with a tree and books" class="rounded-t-lg mb-4" height="200" src="img/principito.webp" width="300"/>
+        <h2 class="text-lg font-semibold text-gray-700 mb-2">
+            El Principito
+        </h2>
+
+     </div>
+    </a>
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <a href="https://web.seducoahuila.gob.mx/biblioweb/upload/J.K.%20Rowling%20-%20La%20Piedra%20filosofal.pdf" target="_blank" >
+       <img alt="A globe and books" class="rounded-t-lg mb-4" height="200" src="img/harrypotter.webp" width="300"/>
+       <h2 class="text-lg font-semibold text-gray-700 mb-2">
+        Harry Potter  y 
+        la piedra filosofal 
+       </h2>
+      </a>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <a href="https://drive.google.com/file/d/1hXg-MUzd4B7K7_t2JNdcjOxvt2ns45G5/view" target="_blank">
+       <img alt="A sculpture and books" class="rounded-t-lg mb-4" height="200" src="img/Cumbres.webp" width="300"/>
+       <h2 class="text-lg font-semibold text-gray-700 mb-2">
+        Cumbres Borrascosas
+       </h2>
+      </a>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <a href="https://ia601203.us.archive.org/13/items/e2178e278274281/Invisible_Eloy_Moreno.pdf" target="_blank">
+       <img alt="An open book" class="rounded-t-lg mb-4" height="200" src="img/invisible-eloy.webp" width="300"/>
+       <h2 class="text-lg font-semibold text-gray-700 mb-2">
+        Invisible Eloy
+       </h2>
+       </a>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <a href="https://drive.google.com/file/d/0B8hiaJPTaMIGTlhfbXItdjNkUFU/view?resourcekey=0-oI_v3eiMO2pXtswLXq-Elw" target="_blank"></a>
+       <img alt="A plant and books" class="rounded-t-lg mb-4" height="200" src="img/La ladrona de libros.webp" width="300"/>
+       <h2 class="text-lg font-semibold text-gray-700 mb-2">
+        La Ladrona de Libros
+       </h2>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <a href="https://drive.google.com/file/d/0B8iO_h_UisQhRVZVY0x2T09ybTQ/edit?resourcekey=0-A2C9i9QH8u6XEXJandRpWg" target="_blank"></a>
+       <img alt="An apple on books" class="rounded-t-lg mb-4" height="200" src="img/persepolis.webp" width="300"/>
+       <h2 class="text-lg font-semibold text-gray-700 mb-2">
+        Persepolis
+       </h2>
+      </div>
+     </div>
+    </div>
+    
+   </div>
+   
+  </div>
+ </body>
+</html>
